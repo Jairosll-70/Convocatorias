@@ -1,10 +1,12 @@
-const convocatoria = require("../model/convocatoria");
+const convocatoriaModel = require("../model/convocatoria");
 
 const getConvocatorias = async (req, res) => {
+    const convocatorias = await convocatoriaModel.find({});
     try {
-        const convocatorias = await convocatoria.find({});
-        res.status(200).json(convocatorias);
+        console.log("Convocatorias ---->", convocatorias);
+        res.status(200).send(convocatorias);
     } catch (error) {
+        console.log(error);
         res.status(400).json({
             message: error
         });
@@ -14,7 +16,7 @@ const getConvocatorias = async (req, res) => {
 const getConvocatoria = async (req, res) => {
     const { id } = req.params;
     try {
-        const convocatoria = await Convocatoria.findById(id);
+        const convocatoria = await convocatoriaModel.findById(id);
         res.status(200).json(convocatoria);
     } catch (error) {
         res.status(400).json({
@@ -24,16 +26,40 @@ const getConvocatoria = async (req, res) => {
 }
 
 const createConvocatoria = async (req, res) => {
-    const { nombre, fecha_inicio, fecha_fin, acta, estado } = req.body;
-    const convocatoria = new convocatoria({nombre, fecha_inicio, fecha_fin, acta, estado});
+    const convocatoria = new convocatoriaModel(req.body);
+    console.log(convocatoria.nombre);
     try {
         await convocatoria.save();
-        res.status(200).json(convocatoria);
+        res.status(200).send({
+            message: "Convocatoria creada correctamente"
+        });
     } catch (error) {
-        res.status(400).json({
+        res.status(400).send({
             message: error
         });
     }
 }
 
-module.exports = { getConvocatorias, getConvocatoria, createConvocatoria };
+const updateConvocatoria = async (req, res) => {
+    try {
+        const convocatoria = await convocatoriaModel.findByIdAndUpdate(req.params.id, req.body);
+        res.status(200).send({
+            message: "Convocatoria actualizada correctamente"
+        });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+const deleteConvocatoria = async (req, res) => {
+    try {
+        await convocatoriaModel.findByIdAndDelete(req.params.id);
+        res.status(200).send({
+            message: "Convocatoria eliminada"
+        });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+module.exports = { getConvocatorias, getConvocatoria, createConvocatoria, updateConvocatoria, deleteConvocatoria };

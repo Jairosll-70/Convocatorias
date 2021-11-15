@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const convocatoriaSchema = mongoose.Schema({
+const convocatoriaSchema = new mongoose.Schema({
     nombre: {
         type: String,
         required: true
@@ -24,5 +24,5 @@ const convocatoriaSchema = mongoose.Schema({
     },
 });
 
-var convocatoria = mongoose.model('convocatoria', convocatoriaSchema);
-module.exports = convocatoria;
+const Convocatorias = mongoose.model('convocatorias', convocatoriaSchema);
+module.exports = Convocatorias;
