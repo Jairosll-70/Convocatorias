@@ -1,0 +1,4 @@
+@testURL = 'http://localhost:3000/'
+
+### Get all convocatorias
+GET {{testURL}}
