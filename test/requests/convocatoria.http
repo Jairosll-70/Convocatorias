@@ -1,6 +1,7 @@
 @testURL=http://localhost:3000
 
-@id=6192c03961e57157fd8298ff
+@id=61959c3ca23f32fd5f6e1c41
+
 
 ### Get all convocatorias
 GET {{testURL}}
@@ -13,9 +14,9 @@ POST {{testURL}}
 content-type: application/json
 
 {
-    "nombre": "Convocatoria 1",
-    "fecha_inicio": "03/25/2015",
-    "fecha_fin": "03/25/2015",
+    "nombre": "Convocatoria 2",
+    "fecha_inicio": "04/25/2015",
+    "fecha_fin": "04/25/2015",
     "acta": "loremIpsum"
 }
 

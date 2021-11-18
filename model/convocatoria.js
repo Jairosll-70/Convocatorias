@@ -14,7 +14,7 @@ const convocatoriaSchema = new mongoose.Schema({
         required: true
     },
     acta: {
-        type: String,
+        type: Number,
         required: false
     },
     estado: {
