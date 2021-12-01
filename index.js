@@ -12,7 +12,7 @@ app.use(express.json());
 // create the mongoose connection for the local database (for deployment use the mongoDB cloud url)
 // mongodb+srv://jairosll:LaVidaEsBella@cluster0.6gpiz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 // mongodb+srv://dbUser:toor@cluster0.xz3sa.mongodb.net/Convocatorias?retryWrites=true&w=majority
-mongoose.connect("mongodb+srv://jairosll:LaVidaEsBella@cluster0.6gpiz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useNewUrlParser: true}).then(() => {
+mongoose.connect("mongodb+srv:// @cluster0.6gpiz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useNewUrlParser: true}).then(() => {
     console.log("successfully connected to db");
   })
   .catch((err) => {
