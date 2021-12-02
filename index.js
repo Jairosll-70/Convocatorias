@@ -20,6 +20,7 @@ mongoose.connect("mongodb+srv://jairosll:LaVidaEsBella@cluster0.6gpiz.mongodb.ne
   });
 
 
+  
 // app add routes
 
 app.use(convocatoriaRoutes);
